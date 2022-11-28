@@ -1,24 +1,15 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <errno.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/utsname.h>
+#include <unistd.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
+int main() {
 
-int main(){
+	const char PATH[] = "/D:/a.CARRERA/SEXTO/ASOR/ej5.txt";
 
-    struct utsname info;
-    if (uname (&info) == -1){
-        printf("ERROR(%d): %s\n", errno, strerror);
-     return -1;
-	} else {
-    printf("Nombre del Sistema: %s\n", info.sysname);
-    printf("Nodename: %s\n", info.nodename);
-    printf("Release: %s\n", info.release);
-    printf("Version: %s\n", info.version);
-    printf("Machine: %s\n", info.machine);
-  }
-  return 1;
+	int df = open(PATH, O_CREAT, 0645);
+
+	return 1;
 }
